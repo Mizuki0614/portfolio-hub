@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Hub Frontend
 
-## Getting Started
+個人ポートフォリオサイトのフロントエンドアプリケーション
 
-First, run the development server:
+## 概要
+
+Portfolio Hub Frontendは、写真家とインフラエンジニア両方の専門性をアピールする個人ポートフォリオサイトのフロントエンドです。洗練されたデザインと高いパフォーマンスを実現します。
+
+## 技術スタック
+
+- **フレームワーク**: Next.js 14 (App Router)
+- **言語**: TypeScript
+- **スタイリング**: Tailwind CSS
+- **テスト**: Jest + React Testing Library + fast-check
+- **リント**: ESLint + Prettier
+- **デプロイ**: AWS CloudFront + S3
+
+## セットアップ
+
+### 前提条件
+
+- Node.js 18.17+
+- npm, yarn, pnpm, または bun
+
+### インストール
+
+```bash
+# 依存関係のインストール
+npm install
+# または
+yarn install
+# または
+pnpm install
+```
+
+### 開発サーバー起動
 
 ```bash
 npm run dev
-# or
+# または
 yarn dev
-# or
+# または
 pnpm dev
-# or
+# または
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ブラウザで [http://localhost:3000](http://localhost:3000) を開いて結果を確認してください。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`app/page.tsx` を編集することでページを変更できます。ファイルを編集すると自動的にページが更新されます。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 開発
 
-## Learn More
+### コマンド
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# 開発サーバー起動
+npm run dev
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# ビルド
+npm run build
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# 本番サーバー起動
+npm run start
 
-## Deploy on Vercel
+# リント
+npm run lint
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# テスト実行
+npm run test
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# プロパティベーステスト
+npm run test:properties
+```
+
+### ディレクトリ構成
+
+```
+frontend/
+├── src/
+│   ├── app/                    # App Router
+│   │   ├── (public)/          # 公開ページグループ
+│   │   ├── (admin)/           # 管理画面グループ
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx
+│   ├── components/            # 再利用可能コンポーネント
+│   │   ├── ui/               # 基本UIコンポーネント
+│   │   ├── layout/           # レイアウト関連
+│   │   ├── portfolio/        # ポートフォリオ特化
+│   │   └── blog/             # ブログ関連
+│   ├── hooks/                # カスタムフック
+│   ├── lib/                  # ライブラリ・設定
+│   ├── types/                # TypeScript型定義
+│   └── utils/                # ユーティリティ関数
+├── public/                   # 静的ファイル
+└── __tests__/                # テストファイル
+    ├── components/
+    ├── hooks/
+    ├── utils/
+    └── properties/           # プロパティベーステスト
+```
+
+## 機能
+
+### 公開機能
+- **プロフィール**: 写真家・エンジニア両方の専門性を表現
+- **写真ポートフォリオ**: カテゴリ別写真ギャラリー、ライトボックス表示
+- **エンジニアリングポートフォリオ**: 技術プロジェクト紹介
+- **ブログ**: Markdown記事表示、シンタックスハイライト
+
+### 管理機能
+- **コンテンツ管理**: 記事・写真・プロジェクトの作成・編集・削除
+- **認証**: AWS Cognito統合
+- **画像管理**: アップロード・最適化・メタデータ編集
+
+## デプロイ
+
+AWS CloudFront + S3での静的サイトホスティングを想定しています。
+Terraformを使用したインフラ自動化により、CI/CDパイプラインでデプロイされます。
+
+## ライセンス
+
+MIT License
