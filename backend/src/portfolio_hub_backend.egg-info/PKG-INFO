@@ -1,0 +1,131 @@
+Metadata-Version: 2.4
+Name: portfolio-hub-backend
+Version: 0.1.0
+Summary: Portfolio Hub Backend - AWS Lambda functions for personal portfolio site
+Requires-Python: >=3.12
+Description-Content-Type: text/markdown
+Requires-Dist: fastapi>=0.128.0
+Requires-Dist: pydantic>=2.12.5
+Requires-Dist: uvicorn[standard]>=0.40.0
+Requires-Dist: psycopg2-binary>=2.9.9
+Requires-Dist: boto3>=1.35.0
+Requires-Dist: python-jose[cryptography]>=3.3.0
+Requires-Dist: python-multipart>=0.0.9
+Requires-Dist: pillow>=10.4.0
+Requires-Dist: markdown>=3.7.0
+
+# Portfolio Hub Backend
+
+AWS Lambda上で動作する個人ポートフォリオサイトのバックエンドAPI
+
+## 概要
+
+Portfolio Hub Backendは、写真家とインフラエンジニア両方の専門性をアピールする個人ポートフォリオサイトのバックエンドAPIです。AWS サーバレスアーキテクチャを採用し、コスト効率と高いパフォーマンスを実現します。
+
+## 技術スタック
+
+- **言語**: Python 3.12+
+- **フレームワーク**: FastAPI
+- **データベース**: Aurora Serverless v2 (PostgreSQL)
+- **インフラ**: AWS Lambda + API Gateway
+- **テスト**: pytest + Hypothesis (プロパティベーステスト)
+- **コード品質**: Black, isort, flake8, mypy
+
+## セットアップ
+
+### 前提条件
+
+- Python 3.12+
+- uv (Python パッケージマネージャー)
+
+### インストール
+
+```bash
+# 依存関係のインストール
+python -m uv sync
+
+# 環境変数設定
+cp .env.example .env
+# .envファイルを編集して適切な値を設定
+```
+
+### 開発環境セットアップ
+
+```bash
+# 開発環境の自動セットアップ
+python scripts/dev.py setup
+```
+
+## 開発
+
+### コマンド
+
+```bash
+# 開発サーバー起動
+python -m uv run uvicorn main:app --reload --host 0.0.0.0 --port 8000
+
+# テスト実行
+python -m uv run pytest tests/ -v
+
+# カバレッジ付きテスト
+python -m uv run pytest tests/ --cov=src --cov-report=html --cov-report=term
+
+# プロパティベーステスト
+python -m uv run pytest tests/properties/ -v
+
+# コードフォーマット
+python -m uv run black src/ tests/ && python -m uv run isort src/ tests/
+
+# リント
+python -m uv run flake8 src/ tests/
+
+# 型チェック
+python -m uv run mypy src/
+```
+
+### ディレクトリ構成
+
+```
+backend/
+├── src/
+│   ├── config/          # 設定管理
+│   ├── handlers/        # Lambda関数ハンドラー
+│   ├── models/          # データモデル
+│   ├── services/        # ビジネスロジック
+│   └── utils/           # ユーティリティ
+├── tests/
+│   ├── unit/            # 単体テスト
+│   ├── integration/     # 統合テスト
+│   ├── properties/      # プロパティベーステスト
+│   └── fixtures/        # テストデータ
+└── scripts/             # 開発用スクリプト
+```
+
+## テスト
+
+### テスト戦略
+
+- **単体テスト**: 具体的な例とエッジケースを検証
+- **プロパティベーステスト**: 普遍的なプロパティを検証
+- **統合テスト**: API とデータベースの連携を検証
+
+### テスト実行
+
+```bash
+# 全テスト実行
+python scripts/dev.py test
+
+# 単体テストのみ
+python -m uv run pytest tests/unit/ -v
+
+# プロパティベーステストのみ
+python -m uv run pytest tests/properties/ -v
+```
+
+## デプロイ
+
+AWS Lambda + API Gateway環境へのデプロイは、Terraformを使用して自動化されます。
+
+## ライセンス
+
+MIT License

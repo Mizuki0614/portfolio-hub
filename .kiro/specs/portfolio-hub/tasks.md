@@ -15,20 +15,28 @@ Portfolio Hub の実装を段階的に進めるためのタスクリストです
 
 ### Phase 1: プロジェクト基盤構築
 
-- [ ] 1. プロジェクト構造とツールチェーン設定
+- [-] 1. プロジェクト構造とツールチェーン設定
+
+
   - GitHub リポジトリ作成・初期化
   - ディレクトリ構造作成（frontend/, backend/, terraform/）
   - 開発環境設定（Node.js, Python, Terraform）
   - _要件: 12.3, 17.3_
 
-- [ ] 1.1 フロントエンド基盤セットアップ
+- [x] 1.1 フロントエンド基盤セットアップ
+
+
   - Next.js 14 + TypeScript + Tailwind CSS プロジェクト作成
   - ESLint, Prettier, Jest 設定
   - 基本的なディレクトリ構造作成
   - fast-check（プロパティベーステスト）設定
   - _要件: 12.1, 12.2_
 
-- [ ] 1.2 バックエンド基盤セットアップ
+- [x] 1.2 バックエンド基盤セットアップ
+
+
+
+
   - uv プロジェクト初期化（pyproject.toml）
   - FastAPI + pytest + Hypothesis 依存関係設定
   - 基本的なディレクトリ構造作成
