@@ -59,9 +59,11 @@ AWS上のサーバレスサービスでホストする個人ポートフォリ�
 - サーバレス First
 
 ### CI/CD基盤
-- **AWS Codeシリーズ**: CodeCommit、CodeBuild、CodeDeploy、CodePipeline
+- **GitHub**: ソースコード管理・公開リポジトリ
+- **AWS Codeシリーズ**: CodePipeline、CodeBuild、CodeDeploy
+- **統合**: GitHub Webhook → CodePipeline連携
 - **AWSネイティブ**: AWS環境に特化した実績構築
-- **自動化**: ビルド・テスト・デプロイの完全自動化
+- **自動化**: ブランチ別の段階的デプロイメント
 - **監視**: CloudWatchによる包括的な監視・ログ記録
 
 ### データベース選択基準
@@ -88,7 +90,7 @@ Storage: S3 (画像・静的ファイル)
 CDN: CloudFront
 Auth: AWS Cognito
 IaC: Terraform (汎用性重視)
-CI/CD: AWS Code シリーズ (CodeCommit, CodeBuild, CodeDeploy, CodePipeline)
+CI/CD: GitHub + AWS Code シリーズ (GitHub → CodePipeline → CodeBuild → CodeDeploy)
 Monitoring: CloudWatch
 ```
 

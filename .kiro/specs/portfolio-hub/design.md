@@ -35,11 +35,15 @@ graph TB
         J[AWS Cognito]
     end
     
+    subgraph "ソースコード管理"
+        K[GitHub Repository]
+    end
+    
     subgraph "CI/CD"
-        K[CodeCommit]
-        L[CodeBuild]
-        M[CodeDeploy]
-        N[CodePipeline]
+        L[CodePipeline]
+        M[CodeBuild]
+        N[CodeDeploy]
+    end
     end
     
     A --> D
@@ -469,7 +473,6 @@ portfolio-hub/
 ├── backend/              # Python Lambda 関数
 ├── terraform/            # インフラ構成
 ├── docs/                 # プロジェクトドキュメント
-├── .github/              # GitHub Actions (CI/CD)
 ├── docker/               # 開発環境用Docker設定
 └── scripts/              # デプロイ・管理スクリプト
 ```

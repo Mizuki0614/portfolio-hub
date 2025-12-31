@@ -113,7 +113,7 @@ AWS上のサーバレスサービスでホストする個人ポートフォリ�
 4. THE Portfolio_Hub_System SHALL 画像の自動リサイズと最適化機能を提供する
 5. THE Portfolio_Hub_System SHALL ポートフォリオアイテムの表示順序変更機能を提供する
 
-### 要件 9
+### 要件 10
 
 **ユーザーストーリー:** システム運用者として、コスト効率的なインフラで運用したい。そうすることで、個人プロジェクトとして持続可能な運用ができる。
 
@@ -125,7 +125,7 @@ AWS上のサーバレスサービスでホストする個人ポートフォリ�
 4. THE Portfolio_Hub_System SHALL Aurora Serverless v2（0 ACU対応）をデータストレージとして使用する
 5. THE Portfolio_Hub_System SHALL CloudFrontを使用して静的コンテンツを配信する
 
-### 要件 11
+### 要件 12
 
 **ユーザーストーリー:** エンジニアとして、技術的な専門性をアピールできる適切な技術スタックでサイトを構築したい。そうすることで、ポートフォリオサイト自体が技術力の証明となる。
 
@@ -137,19 +137,19 @@ AWS上のサーバレスサービスでホストする個人ポートフォリ�
 4. THE Portfolio_Hub_System SHALL 学習価値が高く業界標準的な技術を使用する
 5. THE Portfolio_Hub_System SHALL ソースコードをGitHubで公開し、技術選択の根拠を示す
 
-### 要件 13
+### 要件 14
 
 **ユーザーストーリー:** AWSエンジニアとして、AWS Codeシリーズを活用したCI/CD基盤を構築したい。そうすることで、AWSネイティブな開発・運用スキルを実績として示せる。
 
 #### 受入基準
 
-1. THE Portfolio_Hub_System SHALL AWS CodeCommit、CodeBuild、CodeDeploy、CodePipelineを使用したCI/CDパイプラインで構築される
-2. WHEN コードがリポジトリにプッシュされる時、THE Portfolio_Hub_System SHALL 自動的にビルド・テスト・デプロイを実行する
+1. THE Portfolio_Hub_System SHALL GitHub リポジトリとAWS CodePipeline、CodeBuild、CodeDeployを統合したCI/CDパイプラインで構築される
+2. WHEN コードがGitHubリポジトリにプッシュされる時、THE Portfolio_Hub_System SHALL Webhookを通じてAWS CodePipelineを起動し、自動的にビルド・テスト・デプロイを実行する
 3. THE Portfolio_Hub_System SHALL 開発・ステージング・本番環境への段階的デプロイメントを自動化する
 4. THE Portfolio_Hub_System SHALL ビルド・デプロイの状況をCloudWatchで監視・ログ記録する
 5. THE Portfolio_Hub_System SHALL 失敗時の自動ロールバック機能を提供する
 
-### 要件 15
+### 要件 16
 
 **ユーザーストーリー:** エンジニアとして、RDBMS（PostgreSQL）の設計・運用スキルを習得したい。そうすることで、NoSQLとRDBMS両方の技術を実績として示せる。
 
